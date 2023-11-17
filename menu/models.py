@@ -7,6 +7,8 @@ class MenuItem(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
     class Meta:
+        db_table = 'menuitem'
+
         verbose_name = 'Menu Item'
         verbose_name_plural = 'Menu Items'
 

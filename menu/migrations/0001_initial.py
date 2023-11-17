@@ -25,4 +25,8 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Menu Items',
             },
         ),
+        migrations.AlterModelTable(
+            name='menuitem',
+            table='menuitem',
+        ),
     ]

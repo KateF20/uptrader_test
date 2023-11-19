@@ -1,0 +1,25 @@
+{% load menu_tags %}
+
+{% for elem in menu_level %}
+    <ul class="menu">
+        <li class="menu-item">
+            <a href="{{ elem.url }}" {% if elem.is_parent %}onclick="toggleChildren({{ elem.id }}); return false;"{% endif %}>
+                {{ elem.name }}
+            </a>
+            {% if elem.is_parent %}
+                <div id="child-of-{{ elem.id }}" style="display: none;">
+                    {% render_menu category elem.id %}
+                </div>
+            {% endif %}
+        </li>
+    </ul>
+{% endfor %}
+
+<script>
+    function toggleChildren(parentId) {
+        var childMenu = document.getElementById('child-of-' + parentId);
+        if (childMenu) {
+            childMenu.style.display = childMenu.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+</script>

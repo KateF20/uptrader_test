@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load menu_tags %}
+
+{% block content %}
+    <p>{% render_menu 'main_menu' %}</p>
+    <p>{% render_menu 'footer_menu' %}</p>
+{% endblock %}
